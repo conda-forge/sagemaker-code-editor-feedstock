@@ -12,7 +12,7 @@ source:
   folder: sagemaker-code-editor
 
 build:
-  number: 3
+  number: 4
   skip: true  # [not linux]
 
 requirements:
@@ -47,6 +47,8 @@ requirements:
 test:
   commands:
     - sagemaker-code-editor --help
+    # we're using conda ripgrep instead of the node module so testing it's functionality
+    - ${PREFIX}/share/sagemaker-code-editor/node_modules/@vscode/ripgrep/bin/rg --help
 
 about:
   home: https://aws.amazon.com/sagemaker/
