@@ -47,6 +47,8 @@ requirements:
 test:
   commands:
     - sagemaker-code-editor --help
+    # we're using conda ripgrep instead of the node module so testing it's functionality
+    - ${PREFIX}/share/sagemaker-code-editor/node_modules/@vscode/ripgrep/bin/rg --help
 
 about:
   home: https://aws.amazon.com/sagemaker/
