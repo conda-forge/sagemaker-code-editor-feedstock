@@ -55,3 +55,4 @@ cat <<EOF >${PREFIX}/share/sagemaker-code-editor/node_modules/@vscode/ripgrep/bi
 exec "${PREFIX}/bin/rg" "\$@"
 EOF
 chmod +x ${PREFIX}/share/sagemaker-code-editor/node_modules/@vscode/ripgrep/bin/rg
+
