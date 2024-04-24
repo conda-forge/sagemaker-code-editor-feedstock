@@ -17,6 +17,13 @@ else
     exit 1
 fi
 
+if [ -d "code-editor" ]; then
+    pushd code-editor
+else
+    echo "Directory code-editor does not exist"
+    exit 1
+fi
+
 current_dir=$(pwd)
 echo "The current directory is: $current_dir, line 19"
 current_ls=$(ls)
