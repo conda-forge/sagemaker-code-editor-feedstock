@@ -8,7 +8,7 @@ package:
 source:
   # github repo set-up is in progress, once ready we will use the github release url here instead of the s3 url
   url: https://github.com/aws/sagemaker-code-editor/releases/download/1.83.1-ce1/1.83.1-ce1.tar.gz
-  sha256: 619ece91f1d108e179d8774e5e1697714d3f57ced476dac298102a91fe66f6d7
+  sha256: 7a9de0bb1f5ea2d462fb3453d75565e5d38dbd30dd55a88a927449c0637c13dd
   folder: sagemaker-code-editor
 
 build:
