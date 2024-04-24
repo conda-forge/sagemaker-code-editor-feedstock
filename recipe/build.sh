@@ -19,6 +19,8 @@ fi
 
 current_dir=$(pwd)
 echo "The current directory is: $current_dir, line 19"
+current_ls=$(ls)
+echo "The current ls is $current_ls, line 23"
 
 if [ -d "src" ]; then
     pushd src
