@@ -5,8 +5,19 @@ set -exuo pipefail
 # This code includes code from https://github.com/conda-forge/openvscode-server-feedstock 
 # which is licensed under the BSD-3-Clause License.
 
-pushd sagemaker-code-editor
-pushd src
+if [ -d "sagemaker-code-editor" ]; then
+    pushd sagemaker-code-editor
+else
+    echo "Directory sagemaker-code-editor does not exist"
+    exit 1
+fi
+
+if [ -d "src" ]; then
+    pushd src
+else
+    echo "Directory src does not exist"
+    exit 1
+fi
 
 # Install node-gyp globally as a fix for NodeJS 18.18.2 https://github.com/microsoft/vscode/issues/194665
 npm i -g node-gyp
