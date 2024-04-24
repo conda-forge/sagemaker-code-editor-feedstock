@@ -5,12 +5,20 @@ set -exuo pipefail
 # This code includes code from https://github.com/conda-forge/openvscode-server-feedstock 
 # which is licensed under the BSD-3-Clause License.
 
+current_dir=$(pwd)
+echo "The current directory is: $current_dir, line 9"
+
 if [ -d "sagemaker-code-editor" ]; then
+    current_dir=$(pwd)
+    echo "The current directory is: $current_dir, line 12"
     pushd sagemaker-code-editor
 else
     echo "Directory sagemaker-code-editor does not exist"
     exit 1
 fi
+
+current_dir=$(pwd)
+echo "The current directory is: $current_dir, line 19"
 
 if [ -d "src" ]; then
     pushd src
