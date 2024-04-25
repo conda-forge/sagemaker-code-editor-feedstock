@@ -5,36 +5,9 @@ set -exuo pipefail
 # This code includes code from https://github.com/conda-forge/openvscode-server-feedstock 
 # which is licensed under the BSD-3-Clause License.
 
-current_dir=$(pwd)
-echo "The current directory is: $current_dir, line 9"
-
-if [ -d "sagemaker-code-editor" ]; then
-    current_dir=$(pwd)
-    echo "The current directory is: $current_dir, line 12"
-    pushd sagemaker-code-editor
-else
-    echo "Directory sagemaker-code-editor does not exist"
-    exit 1
-fi
-
-if [ -d "code-editor" ]; then
-    pushd code-editor
-else
-    echo "Directory code-editor does not exist"
-    exit 1
-fi
-
-current_dir=$(pwd)
-echo "The current directory is: $current_dir, line 19"
-current_ls=$(ls)
-echo "The current ls is $current_ls, line 23"
-
-if [ -d "src" ]; then
-    pushd src
-else
-    echo "Directory src does not exist"
-    exit 1
-fi
+pushd sagemaker-code-editor
+pushd code-editor
+pushd src
 
 # Install node-gyp globally as a fix for NodeJS 18.18.2 https://github.com/microsoft/vscode/issues/194665
 npm i -g node-gyp
