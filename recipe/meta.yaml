@@ -1,5 +1,5 @@
 {% set name = "sagemaker-code-editor" %}
-{% set version = "1.0.0" %}
+{% set version = "1.0.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,8 +7,8 @@ package:
 
 source:
   # github repo set-up is in progress, once ready we will use the github release url here instead of the s3 url
-  url: https://sagemaker-code-editor-1696292125.s3.us-west-2.amazonaws.com/code-editor.tar.gz
-  sha256: 9effda827c45e1fd8dfc534ce310791ee46070d818ede89abf19e3ec9c8906d0
+  url: https://sagemaker-code-editor-1696292125.s3.us-west-2.amazonaws.com/code-editor1.0.1.tar.gz
+  sha256: 673ecd8541bdd78f8fb76f4563394fe7fa9ebb7f64cefef07f03257e41085aad
   folder: sagemaker-code-editor
 
 build:
