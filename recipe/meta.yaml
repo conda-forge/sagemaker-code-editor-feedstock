@@ -17,6 +17,7 @@ build:
 
 requirements:
   build:
+    - compilers
     # dependencies needed for open source microsoft/vscode - https://github.com/microsoft/vscode/wiki/How-to-Contribute 
     - nodejs >=20.9
     - yarn <2
