@@ -1,5 +1,5 @@
 {% set name = "sagemaker-code-editor" %}
-{% set version = "1.0.1dev0" %}
+{% set version = "1.1.0dev0" %}
 
 package:
   name: {{ name|lower }}
@@ -19,7 +19,7 @@ requirements:
   build:
     - compilers
     # dependencies needed for open source microsoft/vscode - https://github.com/microsoft/vscode/wiki/How-to-Contribute 
-    - nodejs ==18.18.2
+    - nodejs >=20.9
     - yarn <2
     - make
     - pkg-config
@@ -31,7 +31,7 @@ requirements:
     - setuptools
   host:
     # dependencies needed for open source microsoft/vscode - https://github.com/microsoft/vscode/wiki/How-to-Contribute 
-    - nodejs ==18.18.2
+    - nodejs >=20.9
     - libxkbfile
     - xorg-libx11
     - krb5
