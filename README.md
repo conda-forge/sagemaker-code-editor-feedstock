@@ -51,14 +51,14 @@ Current release info
 Installing sagemaker-code-editor
 ================================
 
-Installing `sagemaker-code-editor` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `sagemaker-code-editor` from the `conda-forge/label/sagemaker-code-editor_dev` channel can be achieved by adding `conda-forge/label/sagemaker-code-editor_dev` to your channels with:
 
 ```
-conda config --add channels conda-forge
+conda config --add channels conda-forge/label/sagemaker-code-editor_dev
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `sagemaker-code-editor` can be installed with `conda`:
+Once the `conda-forge/label/sagemaker-code-editor_dev` channel has been enabled, `sagemaker-code-editor` can be installed with `conda`:
 
 ```
 conda install sagemaker-code-editor
@@ -73,26 +73,26 @@ mamba install sagemaker-code-editor
 It is possible to list all of the versions of `sagemaker-code-editor` available on your platform with `conda`:
 
 ```
-conda search sagemaker-code-editor --channel conda-forge
+conda search sagemaker-code-editor --channel conda-forge/label/sagemaker-code-editor_dev
 ```
 
 or with `mamba`:
 
 ```
-mamba search sagemaker-code-editor --channel conda-forge
+mamba search sagemaker-code-editor --channel conda-forge/label/sagemaker-code-editor_dev
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search sagemaker-code-editor --channel conda-forge
+mamba repoquery search sagemaker-code-editor --channel conda-forge/label/sagemaker-code-editor_dev
 
 # List packages depending on `sagemaker-code-editor`:
-mamba repoquery whoneeds sagemaker-code-editor --channel conda-forge
+mamba repoquery whoneeds sagemaker-code-editor --channel conda-forge/label/sagemaker-code-editor_dev
 
 # List dependencies of `sagemaker-code-editor`:
-mamba repoquery depends sagemaker-code-editor --channel conda-forge
+mamba repoquery depends sagemaker-code-editor --channel conda-forge/label/sagemaker-code-editor_dev
 ```
 
 
@@ -164,5 +164,8 @@ Feedstock Maintainers
 
 * [@JedML](https://github.com/JedML/)
 * [@arkaprava08](https://github.com/arkaprava08/)
+* [@aws-pangestu](https://github.com/aws-pangestu/)
 * [@aws-prayags](https://github.com/aws-prayags/)
+* [@navinsoni](https://github.com/navinsoni/)
+* [@sgganjo](https://github.com/sgganjo/)
 
