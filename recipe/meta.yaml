@@ -1,5 +1,5 @@
 {% set name = "sagemaker-code-editor" %}
-{% set version = "1.1.0dev0" %}
+{% set version = "1.0.1dev0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,8 +7,8 @@ package:
 
 source:
   # github repo set-up is in progress, once ready we will use the github release url here instead of the s3 url
-  url: https://sagemaker-code-editor-1696292125.s3.us-west-2.amazonaws.com/code-editor1.1.0.tar.gz
-  sha256: a47fe7478460cdc919116bfbe2bc2730256ea42390c6249e8543b791e6c57a3e
+  url: https://sagemaker-code-editor-1696292125.s3.us-west-2.amazonaws.com/code-editor1.0.1.tar.gz
+  sha256: 8430cbc38b6a54814f970f2d23c8f5aa1fb7d3c26511c18d5f250d91f110230d
   folder: sagemaker-code-editor
 
 build:
@@ -19,7 +19,7 @@ requirements:
   build:
     - compilers
     # dependencies needed for open source microsoft/vscode - https://github.com/microsoft/vscode/wiki/How-to-Contribute 
-    - nodejs >=20.9
+    - nodejs ==18.18.2
     - yarn <2
     - make
     - pkg-config
@@ -31,7 +31,7 @@ requirements:
     - setuptools
   host:
     # dependencies needed for open source microsoft/vscode - https://github.com/microsoft/vscode/wiki/How-to-Contribute 
-    - nodejs >=20.9
+    - nodejs ==18.18.2
     - libxkbfile
     - xorg-libx11
     - krb5
