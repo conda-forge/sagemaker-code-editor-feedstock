@@ -24,10 +24,7 @@ requirements:
     - make
     - pkg-config
     - sysroot_linux-64 ==2.17
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
     - krb5
-    
     # jq  - used to parse ripgrep version number
     - jq
     # node-gyp is broken with python 3.12 - https://github.com/nodejs/node-gyp/issues/2869, so pulling in distutils via setuptools
