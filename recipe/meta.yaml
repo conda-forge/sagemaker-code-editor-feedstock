@@ -12,7 +12,7 @@ source:
   folder: sagemaker-code-editor
 
 build:
-  number: 1
+  number: 0
   skip: true  # [not linux]
 
 requirements:
@@ -36,6 +36,7 @@ requirements:
     - xorg-libx11
     - krb5
     - libsecret
+    - compilers
 
     # we're using conda ripgrep instead of the node module - refer to build.sh
     - ripgrep
