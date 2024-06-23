@@ -16,6 +16,8 @@ ls
 
 cat build/lib/extensions.js
 
+export DISABLE_V8_COMPILE_CACHE=1
+
 VSCODE_RIPGREP_VERSION=$(jq -r '.dependencies."@vscode/ripgrep"' package.json)
 mv package.json package.json.orig
 jq 'del(.dependencies."@vscode/ripgrep")' package.json.orig > package.json
