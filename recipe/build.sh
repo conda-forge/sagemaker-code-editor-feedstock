@@ -16,9 +16,6 @@ ls
 
 cat build/lib/extensions.js
 
-cd extensions/simple-browser
-yarn list --prod --json
-
 VSCODE_RIPGREP_VERSION=$(jq -r '.dependencies."@vscode/ripgrep"' package.json)
 mv package.json package.json.orig
 jq 'del(.dependencies."@vscode/ripgrep")' package.json.orig > package.json
