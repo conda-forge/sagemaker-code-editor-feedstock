@@ -8,6 +8,11 @@ set -exuo pipefail
 pushd sagemaker-code-editor
 pushd src
 
+# Fix error 'Check failed: current == end_slot_index.' while running 'yarn list --prod --json'
+# in nodejs 20.x
+# See https://github.com/nodejs/node/issues/51555
+export DISABLE_V8_COMPILE_CACHE=1
+
 # Install node-gyp globally as a fix for NodeJS 18.18.2 https://github.com/microsoft/vscode/issues/194665
 npm i -g node-gyp
 
