@@ -39,6 +39,8 @@ if hash docker-machine 2> /dev/null && docker-machine active > /dev/null; then
     export HOST_USER_ID=$(docker-machine ssh $(docker-machine active) id -u)
 fi
 
+export DISABLE_V8_COMPILE_CACHE=1
+
 ARTIFACTS="$FEEDSTOCK_ROOT/build_artifacts"
 
 if [ -z "$CONFIG" ]; then
@@ -92,6 +94,7 @@ docker run ${DOCKER_RUN_ARGS} \
            -e IS_PR_BUILD \
            -e GIT_BRANCH \
            -e UPLOAD_ON_BRANCH \
+           -e DISABLE_V8_COMPILE_CACHE \
            -e CI \
            -e FEEDSTOCK_NAME \
            -e CPU_COUNT \
