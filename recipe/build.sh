@@ -12,6 +12,8 @@ pushd src
 npm i -g node-gyp
 
 # Install all dependencies except @vscode/ripgrep
+ls
+
 VSCODE_RIPGREP_VERSION=$(jq -r '.dependencies."@vscode/ripgrep"' package.json)
 mv package.json package.json.orig
 jq 'del(.dependencies."@vscode/ripgrep")' package.json.orig > package.json
