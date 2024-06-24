@@ -3,7 +3,7 @@ About sagemaker-code-editor-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/sagemaker-code-editor-feedstock/blob/main/LICENSE.txt)
 
-Home: https://aws.amazon.com/sagemaker/
+Home: https://aws.amazon.com/sagemaker/ 
 
 Package license: MIT
 
