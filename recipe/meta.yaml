@@ -12,7 +12,7 @@ source:
   folder: sagemaker-code-editor
 
 build:
-  number: 0
+  number: 1
   skip: true  # [not linux]
 
 requirements:
@@ -24,8 +24,8 @@ requirements:
     - make
     - pkg-config
     - compilers
-    - sysroot_linux-64 ==2.17
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - krb5
     
