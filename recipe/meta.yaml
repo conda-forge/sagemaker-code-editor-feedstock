@@ -6,7 +6,6 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  # github repo set-up is in progress, once ready we will use the github release url here instead of the s3 url
   url: https://github.com/aws/sagemaker-code-editor/releases/download/v1.3.0/code-editor1.3.0.tar.gz 
   sha256: 6ac12342d0ab5726945127094fd981ade721ea2b952c2dada0e9c6bffc17f81f 
   folder: sagemaker-code-editor
@@ -19,14 +18,15 @@ requirements:
   build:
     # dependencies needed for open source microsoft/vscode - https://github.com/microsoft/vscode/wiki/How-to-Contribute 
     # updating nodejs to >=20.0 as it's requirement for vscode - https://github.com/microsoft/vscode/wiki/How-to-Contribute
+    # vscode has dependency on @azure/msal-node@2.5 which expects node version 20
     - nodejs >=20.0,<21
     - yarn <2
     - make
     - pkg-config
     - compilers
-    - sysroot_linux-64 ==2.17
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - {{ stdlib('c') }}
     - krb5
     
     # jq  - used to parse ripgrep version number
