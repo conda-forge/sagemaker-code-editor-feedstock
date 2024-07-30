@@ -24,9 +24,9 @@ requirements:
     - make
     - pkg-config
     - compilers
-    - sysroot_linux-64 ==2.17
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - {{ stdlib("c") }}
     - krb5
     
     # jq  - used to parse ripgrep version number
