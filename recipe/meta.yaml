@@ -1,14 +1,13 @@
 {% set name = "sagemaker-code-editor" %}
-{% set version = "1.2.0" %}
+{% set version = "1.3.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version|replace("-", "_") }}
 
 source:
-  # github repo set-up is in progress, once ready we will use the github release url here instead of the s3 url
-  url: https://sagemaker-code-editor-1696292125.s3.us-west-2.amazonaws.com/code-editor1.2.0.tar.gz
-  sha256: 26304296e0815e87c70ff32df0bf6fae48d26d4a5ce31dc39336d443c00033b0
+  url: https://github.com/aws/sagemaker-code-editor/releases/download/v1.3.0/code-editor1.3.0.tar.gz 
+  sha256: 6ac12342d0ab5726945127094fd981ade721ea2b952c2dada0e9c6bffc17f81f 
   folder: sagemaker-code-editor
 
 build:
@@ -19,14 +18,15 @@ requirements:
   build:
     # dependencies needed for open source microsoft/vscode - https://github.com/microsoft/vscode/wiki/How-to-Contribute 
     # updating nodejs to >=20.0 as it's requirement for vscode - https://github.com/microsoft/vscode/wiki/How-to-Contribute
-    - nodejs >=20.0
+    # vscode has dependency on @azure/msal-node@2.5 which expects node version 20
+    - nodejs >=20.0,<21
     - yarn <2
     - make
     - pkg-config
     - compilers
-    - sysroot_linux-64 ==2.17
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - {{ stdlib('c') }}
     - krb5
     
     # jq  - used to parse ripgrep version number
@@ -35,7 +35,7 @@ requirements:
     - setuptools
   host:
     # dependencies needed for open source microsoft/vscode - https://github.com/microsoft/vscode/wiki/How-to-Contribute 
-    - nodejs >=20.0
+    - nodejs >=20.0,<21
     - libxkbfile
     - xorg-libx11
     - krb5
@@ -70,3 +70,4 @@ extra:
     - aws-pangestu
     - navinsoni
     - sgganjo
+    - aws-asolidu
