@@ -6,7 +6,6 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  # github repo set-up is in progress, once ready we will use the github release url here instead of the s3 url
   url: https://github.com/aws/sagemaker-code-editor/releases/download/v1.3.2/code-editor1.3.2.tar.gz
   sha256: d538d91b4c5f9578a8ee7b40e00e3353d48281b80d239a8bab4612ff3cf9b39a
   folder: sagemaker-code-editor
@@ -23,6 +22,7 @@ requirements:
     - yarn <2
     - make
     - pkg-config
+    - compilers
     - sysroot_linux-64 ==2.17
     - krb5
     # jq  - used to parse ripgrep version number
@@ -62,7 +62,6 @@ about:
 extra:
   recipe-maintainers:
     - aws-prayags
-    - JedML
     - arkaprava08
     - aws-pangestu
     - navinsoni
