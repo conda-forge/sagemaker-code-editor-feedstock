@@ -162,8 +162,8 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
-* [@JedML](https://github.com/JedML/)
 * [@arkaprava08](https://github.com/arkaprava08/)
+* [@aws-asolidu](https://github.com/aws-asolidu/)
 * [@aws-pangestu](https://github.com/aws-pangestu/)
 * [@aws-prayags](https://github.com/aws-prayags/)
 * [@navinsoni](https://github.com/navinsoni/)

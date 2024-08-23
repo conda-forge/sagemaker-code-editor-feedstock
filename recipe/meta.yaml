@@ -18,12 +18,16 @@ requirements:
   build:
     - compilers
     # dependencies needed for open source microsoft/vscode - https://github.com/microsoft/vscode/wiki/How-to-Contribute 
-    - nodejs >=20.9
+    # updating nodejs to >=20.0 as it's requirement for vscode - https://github.com/microsoft/vscode/wiki/How-to-Contribute
+    # vscode has dependency on @azure/msal-node@2.5 which expects node version 20
+    - nodejs >=20.0,<21
     - yarn <2
     - make
     - pkg-config
     - compilers
-    - sysroot_linux-64 ==2.17
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - {{ stdlib('c') }}
     - krb5
     # jq  - used to parse ripgrep version number
     - jq
@@ -31,7 +35,7 @@ requirements:
     - setuptools
   host:
     # dependencies needed for open source microsoft/vscode - https://github.com/microsoft/vscode/wiki/How-to-Contribute 
-    - nodejs >=20.9
+    - nodejs >=20.0,<21
     - libxkbfile
     - xorg-libx11
     - krb5
@@ -66,3 +70,4 @@ extra:
     - aws-pangestu
     - navinsoni
     - sgganjo
+    - aws-asolidu
