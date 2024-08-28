@@ -8,4 +8,4 @@ azure:
   settings_linux:
       swapfile_size: 10GiB
   # linux image before running the Docker container for building
-  free_disk_space: False
+  free_disk_space: True
