@@ -1,13 +1,13 @@
 {% set name = "sagemaker-code-editor" %}
-{% set version = "1.3.2" %}
+{% set version = "1.1.1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version|replace("-", "_") }}
 
 source:
-  url: https://github.com/aws/sagemaker-code-editor/releases/download/v1.3.2/code-editor1.3.2.tar.gz
-  sha256: d538d91b4c5f9578a8ee7b40e00e3353d48281b80d239a8bab4612ff3cf9b39a
+  url: https://github.com/aws/sagemaker-code-editor/releases/download/v1.1.1/code-editorv1.1.1.tar.gz
+  sha256: f71f6c9c72b6646a5eef86593224c8fe17b1d871e0d1d64ebdbf0d574c5086dd
   folder: sagemaker-code-editor
 
 build:
@@ -19,7 +19,7 @@ requirements:
     # dependencies needed for open source microsoft/vscode - https://github.com/microsoft/vscode/wiki/How-to-Contribute 
     # updating nodejs to >=20.0 as it's requirement for vscode - https://github.com/microsoft/vscode/wiki/How-to-Contribute
     # vscode has dependency on @azure/msal-node@2.5 which expects node version 20
-    - nodejs >=20.0,<21
+    - nodejs >=18.15,<19
     - yarn <2
     - make
     - pkg-config
@@ -35,7 +35,7 @@ requirements:
     - setuptools
   host:
     # dependencies needed for open source microsoft/vscode - https://github.com/microsoft/vscode/wiki/How-to-Contribute 
-    - nodejs >=20.0,<21
+    - nodejs >=18.15,<19
     - libxkbfile
     - xorg-libx11
     - krb5
