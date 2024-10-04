@@ -1,5 +1,5 @@
 {% set name = "sagemaker-code-editor" %}
-{% set version = "1.1.0" %}
+{% set version = "1.1.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,8 +7,8 @@ package:
 
 source:
   # github repo set-up is in progress, once ready we will use the github release url here instead of the s3 url
-  url: https://sagemaker-code-editor-1696292125.s3.us-west-2.amazonaws.com/code-editor1.0.1.tar.gz
-  sha256: 8430cbc38b6a54814f970f2d23c8f5aa1fb7d3c26511c18d5f250d91f110230d
+  url: https://github.com/aws/sagemaker-code-editor/releases/download/v1.1.2/code-editorv1.1.2.tar.gz
+  sha256: 0236bf868ab421357d02f6950d927c25d89b2462e1e16bc8b4bbcfd8da35ea2a
   folder: sagemaker-code-editor
 
 build:
@@ -22,9 +22,10 @@ requirements:
     - yarn <2
     - make
     - pkg-config
-    - sysroot_linux-64 ==2.17
+    - compilers
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - {{ stdlib('c') }}
     - krb5
     
     # jq  - used to parse ripgrep version number
