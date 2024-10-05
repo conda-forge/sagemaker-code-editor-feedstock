@@ -16,7 +16,7 @@ VSCODE_RIPGREP_VERSION=$(jq -r '.dependencies."@vscode/ripgrep"' package.json)
 mv package.json package.json.orig
 jq 'del(.dependencies."@vscode/ripgrep")' package.json.orig > package.json
 
-yarn install
+yarn install --verbose
 
 # Install @vscode/ripgrep without downloading the pre-built ripgrep.
 # This often runs into Github API ratelimits and we won't use the binary in this package anyways.
