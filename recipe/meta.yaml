@@ -12,13 +12,13 @@ source:
   folder: sagemaker-code-editor
 
 build:
-  number: 1
+  number: 2
   skip: true  # [not linux]
 
 requirements:
   build:
     # dependencies needed for open source microsoft/vscode - https://github.com/microsoft/vscode/wiki/How-to-Contribute 
-    - nodejs >=18.15,<18.20
+    - nodejs >=18.15,<18.20.4
     - yarn <2
     - make
     - pkg-config
@@ -34,7 +34,7 @@ requirements:
     - setuptools
   host:
     # dependencies needed for open source microsoft/vscode - https://github.com/microsoft/vscode/wiki/How-to-Contribute 
-    - nodejs >=18.15,<19
+    - nodejs >=18.15,<18.20.4
     - libxkbfile
     - xorg-libx11
     - krb5
