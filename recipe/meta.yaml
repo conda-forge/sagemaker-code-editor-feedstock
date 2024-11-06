@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://github.com/aws/sagemaker-code-editor/releases/download/v1.3.5dev0/code-editorv1.3.5dev0.tar.gz
-  sha256: ae8ed3b55c72ce0b00325b062e5203c5ef38fdf301a0b5a940fe2a963849d88a 
+  sha256: 0e3a098b9f833df5a662f5812cb3f506600f75ed3859655a2e6df9dfbd61615c 
   folder: sagemaker-code-editor
 
 build:
-  number: 0
+  number: 1
   skip: true  # [not linux]
 
 requirements:
