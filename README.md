@@ -166,6 +166,9 @@ Feedstock Maintainers
 * [@aws-asolidu](https://github.com/aws-asolidu/)
 * [@aws-pangestu](https://github.com/aws-pangestu/)
 * [@aws-prayags](https://github.com/aws-prayags/)
+* [@goel-akas](https://github.com/goel-akas/)
 * [@navinsoni](https://github.com/navinsoni/)
 * [@sgganjo](https://github.com/sgganjo/)
+* [@sthodimi](https://github.com/sthodimi/)
+* [@zuoyuanh](https://github.com/zuoyuanh/)
 
