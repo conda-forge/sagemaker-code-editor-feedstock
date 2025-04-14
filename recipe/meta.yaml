@@ -6,12 +6,12 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  url: https://github.com/aws/sagemaker-code-editor/releases/download/v1.5.0/code-editorv1.5.0.tar.gz 
-  sha256: 6ea43ceaa5059ff12ae0998e8869bdf14ba1f336c83c30e8b457e302b20d55e1
+  url: https://github.com/aws/sagemaker-code-editor/releases/download/v1.5.0/code-editorv1.5.1.tar.gz
+  sha256: 7decbd9bc6d0410fd7ba0b5059f869177bd2c5905e9f8dd7806a648438da6fab
   folder: sagemaker-code-editor
 
 build:
-  number: 2
+  number: 3
   skip: true  # [not linux]
 
 requirements:
