@@ -14,6 +14,10 @@ pushd src
 
 export DISABLE_V8_COMPILE_CACHE=1
 
+npm i -g npm
+
+npm --version
+
 # Install node-gyp globally as a fix for NodeJS 18.18.2 https://github.com/microsoft/vscode/issues/194665
 npm i -g node-gyp
 
@@ -22,14 +26,14 @@ VSCODE_RIPGREP_VERSION=$(jq -r '.dependencies."@vscode/ripgrep"' package.json)
 mv package.json package.json.orig
 jq 'del(.dependencies."@vscode/ripgrep")' package.json.orig > package.json
 
-yarn install
+npm install
 
 # Install @vscode/ripgrep without downloading the pre-built ripgrep.
 # This often runs into Github API ratelimits and we won't use the binary in this package anyways.
-yarn add --ignore-scripts "@vscode/ripgrep@${VSCODE_RIPGREP_VERSION}"
+npm add --ignore-scripts "@vscode/ripgrep@${VSCODE_RIPGREP_VERSION}"
 
 ARCH_ALIAS=linux-x64
-yarn gulp vscode-reh-web-${ARCH_ALIAS}-min
+npm run gulp vscode-reh-web-${ARCH_ALIAS}-min --inspect --debug-brk
 popd
 
 mkdir -p $PREFIX/share
