@@ -1,13 +1,13 @@
 {% set name = "sagemaker-code-editor" %}
-{% set version = "1.4.3" %}
+{% set version = "1.7.0-alpha" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version|replace("-", "_") }}
 
 source:
-  url: https://github.com/aws/sagemaker-code-editor/releases/download/v1.4.3/code-editorv1.4.3.tar.gz
-  sha256: 6376bc42305a9c34f476c790a500aad1ddb8068f17e5d68198b51e6eba64878c
+  url: https://github.com/zuoyuanh/sagemaker-code-editor/releases/download/v1.7.0-alpha/code-editorv1.7.0-alpha.tar.gz
+  sha256: c4f6db7ed9a8d1bebaf8a94b22b2f88db5b0969960dc6c7f6a0e66d2434b0626
   folder: sagemaker-code-editor
 
 build:
@@ -20,7 +20,6 @@ requirements:
     # updating nodejs to >=20.0 as it's requirement for vscode - https://github.com/microsoft/vscode/wiki/How-to-Contribute
     # vscode has dependency on @azure/msal-node@2.5 which expects node version 20
     - nodejs >=20.0,<21
-    - yarn <2
     - make
     - pkg-config
     - compilers
