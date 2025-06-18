@@ -1,17 +1,21 @@
 {% set name = "sagemaker-code-editor" %}
-{% set version = "1.2.14" %}
+
+{% set version = "1.6.0" %}
+
 
 package:
   name: {{ name|lower }}
   version: {{ version|replace("-", "_") }}
 
 source:
+
   url: https://github.com/harvenstar/sagemaker-code-editor/releases/download/v1.2.14/code-editor1.2.14.tar.gz
   sha256: 97bd7bc2815e919f7fe348930109faa104b1fefd78c5ba321fc0a564840c45a5
+
   folder: sagemaker-code-editor
 
 build:
-  number: 0
+  number: 3
   skip: true  # [not linux]
 
 requirements:
@@ -40,6 +44,8 @@ requirements:
     - xorg-libx11
     - krb5
     - libsecret
+    - xorg-xproto
+    - xorg-kbproto
 
     # we're using conda ripgrep instead of the node module - refer to build.sh
     - ripgrep
@@ -74,3 +80,4 @@ extra:
     - goel-akas
     - zuoyuanh
     - sthodimi
+    - aws-zamesjhu
