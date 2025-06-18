@@ -3,14 +3,16 @@
 {% set version = "1.2.13" %}
 
 
+
 package:
   name: {{ name|lower }}
   version: {{ version|replace("-", "_") }}
 
 source:
+
   url: https://github.com/harvenstar/sagemaker-code-editor/releases/download/v1.2.13/code-editor1.2.13.tar.gz
   sha256: f0837a4dbcf9bc5d1be0cca984cd91099f48bb6fd6b583e88e33620189da367e
-
+  
   folder: sagemaker-code-editor
 
 build:
