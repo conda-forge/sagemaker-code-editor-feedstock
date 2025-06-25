@@ -32,6 +32,7 @@ jobs:
           role-to-assume: arn:aws:iam::961676525458:role/service-role/codebuild-CE-Versionupdate-Memory-service-role
           # The AWS region where your CodeBuild project is located
           aws-region: us-west-2
+          role-duration-seconds: 10800
 
       # Step 3: Run AWS CodeBuild
       # Use the aws-actions/aws-codebuild-run-build action
