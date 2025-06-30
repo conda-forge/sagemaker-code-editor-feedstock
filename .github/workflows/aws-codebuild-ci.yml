@@ -3,7 +3,9 @@ name: AWS CodeBuild CI
 
 # Trigger condition: Run when a new Pull Request is created or new code is pushed to an existing PR
 on:
-  pull_request:
+  pull_request_target:
+    types: [opened, synchronize, reopened] 
+
 
 # Set permissions for the workflow, which is key for secure authentication using OIDC
 permissions:
