@@ -1,5 +1,14 @@
 #!/bin/bash
 
+echo "=== Memory info ==="
+free -h
+cat /proc/meminfo
+echo "=== Ulimit info ==="
+ulimit -a
+echo "=== Node info ==="
+node --version
+node -p "process.memoryUsage()"
+
 set -exuo pipefail
 
 # This code includes code from https://github.com/conda-forge/openvscode-server-feedstock 
