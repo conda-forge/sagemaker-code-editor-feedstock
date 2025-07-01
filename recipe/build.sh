@@ -28,6 +28,9 @@ jq 'del(.dependencies."@vscode/ripgrep")' package.json.orig > package.json
 
 npm install
 
+# Patch all scripts and package.json to increase Node.js memory limit from 8192MB to 65536MB
+find . -type f -exec sed -i 's/--max-old-space-size=8192/--max-old-space-size=65536/g' {} +
+
 # Install @vscode/ripgrep without downloading the pre-built ripgrep.
 # This often runs into Github API ratelimits and we won't use the binary in this package anyways.
 npm add --ignore-scripts "@vscode/ripgrep@${VSCODE_RIPGREP_VERSION}"
