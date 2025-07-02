@@ -42,13 +42,14 @@ echo "==== User process limit ===="
 ulimit -u
 
 echo "==== All node processes (before gulp) ===="
-ps -o pid,ppid,cmd,%mem,%cpu --sort=-%mem | grep node | grep -v grep
+ps -o pid,ppid,cmd,%mem,%cpu --sort=-%mem | grep node | grep -v grep || true
 
+echo "==== Start Gulp Build ===="
 ARCH_ALIAS=linux-x64
-npm run gulp vscode-reh-web-${ARCH_ALIAS}-min --inspect --debug-brk
+npm run gulp vscode-reh-web-${ARCH_ALIAS}-min --inspect --debug-brk || (echo "==== Gulp failed ===="; ps aux | grep node | grep -v grep || true; exit 1)
 
 echo "==== All node processes (after gulp) ===="
-ps -o pid,ppid,cmd,%mem,%cpu --sort=-%mem | grep node | grep -v grep
+ps -o pid,ppid,cmd,%mem,%cpu --sort=-%mem | grep node | grep -v grep || true
 
 popd
 
