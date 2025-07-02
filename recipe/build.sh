@@ -28,18 +28,28 @@ jq 'del(.dependencies."@vscode/ripgrep")' package.json.orig > package.json
 
 npm install
 
-# Patch all scripts and package.json to increase Node.js memory limit from 8192MB to 32768MB
-find . -type f -exec sed -i 's/--max-old-space-size=8192/--max-old-space-size=32768/g' {} +
+# Patch all scripts and package.json to increase Node.js memory limit from 8192MB to 16384MB
+find . -type f -exec sed -i 's/--max-old-space-size=8192/--max-old-space-size=16384/g' {} +
 
 # Install @vscode/ripgrep without downloading the pre-built ripgrep.
 # This often runs into Github API ratelimits and we won't use the binary in this package anyways.
 npm add --ignore-scripts "@vscode/ripgrep@${VSCODE_RIPGREP_VERSION}"
 
 # Ensure all Node child processes (incl. workers) use large heap
-export NODE_OPTIONS="--max-old-space-size=32768"
+export NODE_OPTIONS="--max-old-space-size=16384"
+
+echo "==== User process limit ===="
+ulimit -u
+
+echo "==== All node processes (before gulp) ===="
+ps -o pid,ppid,cmd,%mem,%cpu --sort=-%mem | grep node | grep -v grep
 
 ARCH_ALIAS=linux-x64
 npm run gulp vscode-reh-web-${ARCH_ALIAS}-min --inspect --debug-brk
+
+echo "==== All node processes (after gulp) ===="
+ps -o pid,ppid,cmd,%mem,%cpu --sort=-%mem | grep node | grep -v grep
+
 popd
 
 mkdir -p $PREFIX/share
