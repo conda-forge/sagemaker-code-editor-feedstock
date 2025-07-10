@@ -7,7 +7,7 @@ set -exuo pipefail
 # This code includes code from https://github.com/conda-forge/openvscode-server-feedstock 
 # which is licensed under the BSD-3-Clause License.
 
-#pushd sagemaker-code-editor
+pushd sagemaker-code-editor
 #pushd src
 
 # Fix error 'Check failed: current == end_slot_index.' while running 'yarn list --prod --json'
