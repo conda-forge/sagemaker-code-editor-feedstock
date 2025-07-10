@@ -1,4 +1,6 @@
 #!/bin/bash
+ls -l
+pwd
 
 set -exuo pipefail
 
