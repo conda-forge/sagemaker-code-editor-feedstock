@@ -1,19 +1,15 @@
 #!/bin/bash
 
 set -exuo pipefail
-ls -l
-pwd
+
 # This code includes code from https://github.com/conda-forge/openvscode-server-feedstock 
 # which is licensed under the BSD-3-Clause License.
 
-pushd sagemaker-code-editor
-ls -l
-
-pushd code-editorv1.6.1
-ls -l
-
-pushd src
-ls -l
+# Find the directory containing package.json and change to it automatically
+# This works for any version folder and avoids hardcoding directory names
+SRC_DIR=$(find . -type f -name package.json -exec dirname {} \; | head -n1)
+cd "$SRC_DIR"
+ls -l  # Confirm we are in the right directory
 
 # Fix error 'Check failed: current == end_slot_index.' while running 'yarn list --prod --json'
 # in nodejs 20.x
