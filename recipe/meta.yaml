@@ -6,6 +6,7 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
+
   url: https://github.com/zuoyuanh/sagemaker-code-editor/releases/download/v1.7.0-alpha/code-editorv1.7.0-alpha.tar.gz
   sha256: c4f6db7ed9a8d1bebaf8a94b22b2f88db5b0969960dc6c7f6a0e66d2434b0626
   folder: sagemaker-code-editor
