@@ -8,7 +8,12 @@ pwd
 
 pushd sagemaker-code-editor
 ls -l
-#pushd src
+
+pushd code-editorv1.6.1
+ls -l
+
+pushd src
+ls -l
 
 # Fix error 'Check failed: current == end_slot_index.' while running 'yarn list --prod --json'
 # in nodejs 20.x
