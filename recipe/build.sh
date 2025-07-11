@@ -6,20 +6,25 @@ set -exuo pipefail
 # which is licensed under the BSD-3-Clause License.
 
 # This name is consistent because of the 'folder' setting in meta.yaml or the archive's structure.
-cd sagemaker-code-editor
+pushd sagemaker-code-editor
 
 # Next, use a wildcard (*) to enter the versioned directory.
 # This matches any directory starting with 'code-editorv', such as 'code-editorv1.6.1'.
-cd code-editorv*
+pushd code-editorv*
 
 # Finally, enter the 'src' directory where the package.json is located.
-cd src
+pushd src
 
 # Fix error 'Check failed: current == end_slot_index.' while running 'yarn list --prod --json'
 # in nodejs 20.x
 # See https://github.com/nodejs/node/issues/51555
 
 export DISABLE_V8_COMPILE_CACHE=1
+
+
+# Limit Node.js memory usage to prevent OOM kills
+export NODE_OPTIONS="--max-old-space-size=4096"
+export UV_THREADPOOL_SIZE=4
 
 # Install node-gyp globally as a fix for NodeJS 18.18.2 https://github.com/microsoft/vscode/issues/194665
 npm i -g node-gyp
@@ -29,7 +34,7 @@ VSCODE_RIPGREP_VERSION=$(jq -r '.dependencies."@vscode/ripgrep"' package.json)
 mv package.json package.json.orig
 jq 'del(.dependencies."@vscode/ripgrep")' package.json.orig > package.json
 
-yarn install
+yarn install --network-concurrency 1
 
 # Install @vscode/ripgrep without downloading the pre-built ripgrep.
 # This often runs into Github API ratelimits and we won't use the binary in this package anyways.
