@@ -67,6 +67,7 @@ about:
 
 extra:
   recipe-maintainers:
+    - pilgd-aws
     - aws-prayags
     - arkaprava08
     - aws-pangestu
