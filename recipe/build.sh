@@ -28,7 +28,7 @@ jq 'del(.dependencies."@vscode/ripgrep")' package.json.orig > package.json
 
 
 
-npm install --network-concurrency 1
+npm install
 
 # Patch all scripts and package.json to increase Node.js memory limit from 8192MB to 32768MB
 find . -type f -exec sed -i 's/--max-old-space-size=8192/--max-old-space-size=32768/g' {} +
