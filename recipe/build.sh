@@ -5,11 +5,15 @@ set -exuo pipefail
 # This code includes code from https://github.com/conda-forge/openvscode-server-feedstock 
 # which is licensed under the BSD-3-Clause License.
 
-# Find the directory containing package.json and change to it automatically
-# This works for any version folder and avoids hardcoding directory names
-SRC_DIR=$(find . -type f -name package.json -exec dirname {} \; | head -n1)
-cd "$SRC_DIR"
-ls -l  # Confirm we are in the right directory
+# This name is consistent because of the 'folder' setting in meta.yaml or the archive's structure.
+cd sagemaker-code-editor
+
+# Next, use a wildcard (*) to enter the versioned directory.
+# This matches any directory starting with 'code-editorv', such as 'code-editorv1.6.1'.
+cd code-editorv*
+
+# Finally, enter the 'src' directory where the package.json is located.
+cd src
 
 # Fix error 'Check failed: current == end_slot_index.' while running 'yarn list --prod --json'
 # in nodejs 20.x
