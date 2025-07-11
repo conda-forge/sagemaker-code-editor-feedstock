@@ -14,6 +14,10 @@ pushd src
 
 export DISABLE_V8_COMPILE_CACHE=1
 
+# Limit Node.js memory usage to prevent OOM kills
+export NODE_OPTIONS="--max-old-space-size=4096"
+export UV_THREADPOOL_SIZE=4
+
 # Install node-gyp globally as a fix for NodeJS 18.18.2 https://github.com/microsoft/vscode/issues/194665
 npm i -g node-gyp
 
@@ -22,7 +26,7 @@ VSCODE_RIPGREP_VERSION=$(jq -r '.dependencies."@vscode/ripgrep"' package.json)
 mv package.json package.json.orig
 jq 'del(.dependencies."@vscode/ripgrep")' package.json.orig > package.json
 
-yarn install
+yarn install --network-concurrency 1
 
 # Install @vscode/ripgrep without downloading the pre-built ripgrep.
 # This often runs into Github API ratelimits and we won't use the binary in this package anyways.
