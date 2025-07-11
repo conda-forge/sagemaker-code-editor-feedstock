@@ -7,7 +7,7 @@ pwd
 # which is licensed under the BSD-3-Clause License.
 
 pushd sagemaker-code-editor
-pushd src
+#pushd src
 
 # Fix error 'Check failed: current == end_slot_index.' while running 'yarn list --prod --json'
 # in nodejs 20.x
