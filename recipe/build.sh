@@ -28,7 +28,7 @@ jq 'del(.dependencies."@vscode/ripgrep")' package.json.orig > package.json
 
 
 
-npm install
+npm install --network-concurrency 1
 
 # Patch all scripts and package.json to increase Node.js memory limit from 8192MB to 32768MB
 find . -type f -exec sed -i 's/--max-old-space-size=8192/--max-old-space-size=32768/g' {} +
@@ -39,11 +39,11 @@ npm add --ignore-scripts "@vscode/ripgrep@${VSCODE_RIPGREP_VERSION}"
 
 # Ensure all Node child processes (incl. workers) use large heap
 export NODE_OPTIONS="--max-old-space-size=32768"
+export UV_THREADPOOL_SIZE=4
 
 
 ARCH_ALIAS=linux-x64
-node --max-old-space-size=32768 --trace-gc ./node_modules/gulp/bin/gulp.js vscode-reh-web-${ARCH_ALIAS}-min
-
+npm run gulp vscode-reh-web-${ARCH_ALIAS}-min --inspect --debug-brk
 popd
 
 mkdir -p $PREFIX/share
