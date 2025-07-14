@@ -51,7 +51,7 @@ if [ -f "$OPTIMIZE_JS_PATH" ]; then
     #    This ensures a maximum of 2 esbuild minification tasks run at the same time,
     #    preventing memory spikes from an excessive number of parallel processes.
     sed -i "s/esbuild_1.default.build({/limit(() => esbuild_1.default.build({/" "$OPTIMIZE_JS_PATH"
-    sed -i "s/}, cb);/}));/" "$OPTIMIZE_JS_PATH"
+    sed -i -E 's/(\.then\(res => \{[^}]*\}, cb\);)/\1));/' "$OPTIMIZE_JS_PATH"
 
     echo "optimize.js patched successfully. Concurrency is now limited to 2."
 else
