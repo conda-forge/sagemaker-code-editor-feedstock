@@ -10,6 +10,11 @@ pushd sagemaker-code-editor
 
 # Next, use a wildcard (*) to enter the versioned directory.
 # This matches any directory starting with 'code-editorv', such as 'code-editorv1.6.1'.
+# https://github.com/conda-forge/sagemaker-code-editor-feedstock/pull/70/checks In this pr, and the error said GXX=$BUILD_PREFIX/bin/x86_64-conda-linux-gnu-g++ 
+# ~/feedstock_root/build_artifacts/sagemaker-code-editor_1750277789375/work/sagemaker-code-editor ~/feedstock_root/build_artifacts/sagemaker-code-editor_1750277789375/work
+# /home/conda/feedstock_root/build_artifacts/sagemaker-code-editor_1750277789375/work/conda_build.sh: line 12: pushd: src: No such file or directory
+# So here I add the commands to fix the error and help to find the right directory
+
 pushd code-editorv*
 
 # Finally, enter the 'src' directory where the package.json is located.
