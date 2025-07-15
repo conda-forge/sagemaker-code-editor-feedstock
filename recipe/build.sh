@@ -11,7 +11,7 @@ pushd sagemaker-code-editor
 # This matches any directory starting with 'code-editor', such as 'code-editorvx.y.z'.
 # https://github.com/conda-forge/sagemaker-code-editor-feedstock/pull/70/checks In this pr, and the error said GXX=$BUILD_PREFIX/bin/x86_64-conda-linux-gnu-g++ ~/feedstock_root/build_artifacts/sagemaker-code-editor_1750277789375/work/sagemaker-code-editor ~/feedstock_root/build_artifacts/sagemaker-code-editor_1750277789375/work/home/conda/feedstock_root/build_artifacts/sagemaker-code-editor_1750277789375/work/conda_build.sh: line 12: pushd: src: No such file or directory
 # So here I add the commands to fix the error and help to find the right directory
-pushd code-editorv*
+pushd code-editor*
 
 pushd src
 
