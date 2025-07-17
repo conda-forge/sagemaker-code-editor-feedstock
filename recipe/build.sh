@@ -10,7 +10,7 @@ pushd sagemaker-code-editor
 # Next, we need use a wildcard (*) to enter the versioned directory.
 # This matches any directory starting with 'code-editor', such as 'code-editorvx.y.z'.
 # https://github.com/conda-forge/sagemaker-code-editor-feedstock/pull/70/checks In this pr, and the error said GXX=$BUILD_PREFIX/bin/x86_64-conda-linux-gnu-g++ ~/feedstock_root/build_artifacts/sagemaker-code-editor_1750277789375/work/sagemaker-code-editor ~/feedstock_root/build_artifacts/sagemaker-code-editor_1750277789375/work/home/conda/feedstock_root/build_artifacts/sagemaker-code-editor_1750277789375/work/conda_build.sh: line 12: pushd: src: No such file or directory
-# So here I add the commands to fix the error and help to find the right directory
+# Add the commands to fix the error and help to find the right directory
 pushd code-editor*
 
 pushd src
@@ -22,8 +22,8 @@ pushd src
 export DISABLE_V8_COMPILE_CACHE=1
 
 # Limit Node.js memory usage to prevent OOM kills
-# We add this because Daniel's pr solve the OOM Failures by adding this and we use the same commands
-# Daniel's pr: https://github.com/conda-forge/sagemaker-code-editor-feedstock/pull/82/files
+# Add this because a previous PR solve the OOM Failures by adding this and we use the same commands
+# See pr: https://github.com/conda-forge/sagemaker-code-editor-feedstock/pull/82/files
 export NODE_OPTIONS="--max-old-space-size=4096"
 export UV_THREADPOOL_SIZE=4
 
@@ -31,7 +31,8 @@ export UV_THREADPOOL_SIZE=4
 npm i -g node-gyp
 
 # Limit concurrency to prevent OOM kills
-# We add this because Daniel's pr solve the OOM Failures by adding this and we use the same commands
+# Add this because a previous PR solve the OOM Failures by adding this and we use the same commands
+# See pr: https://github.com/conda-forge/sagemaker-code-editor-feedstock/pull/82/files
 yarn install --network-concurrency 1
 
 # Install all dependencies except @vscode/ripgrep
