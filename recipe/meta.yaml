@@ -6,7 +6,7 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  url: https://github.com/aws/sagemaker-code-editor/releases/download/v1.7.0/code-editor1.7.0.tar.gz
+  url: https://github.com/aws/sagemaker-code-editor/releases/download/v{{ version }}/code-editor{{ version }}.tar.gz
   sha256: 1daf9528888ab19f67813f82666c0a89129c11cada0b6c9f9ab60f4ef3a60120
   folder: sagemaker-code-editor
 
