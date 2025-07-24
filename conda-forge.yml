@@ -1,5 +1,5 @@
-bot: 
-  automerge: false
+bot:
+  automerge: true
 github:
   branch_name: main
   tooling_branch_name: main
@@ -8,6 +8,6 @@ conda_build:
 conda_forge_output_validation: true
 azure:
   settings_linux:
-      swapfile_size: 10GiB
+    swapfile_size: 10GiB
   # linux image before running the Docker container for building
-  free_disk_space: True
+  free_disk_space: true
