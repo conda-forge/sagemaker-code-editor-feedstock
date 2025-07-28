@@ -9,6 +9,8 @@ set -exuo pipefail
 
 # Copy the extracted folder to the target location under $PREFIX/share/sagemaker-code-editor.
 mkdir -p "${PREFIX}/share"
+echo "Current directory:"
+ls -l
 cp -R vscode-reh-web-linux-x64 "${PREFIX}/share/sagemaker-code-editor"
 
 # Remove all .map files to reduce package size.
