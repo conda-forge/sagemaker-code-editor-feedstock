@@ -11,7 +11,7 @@ set -exuo pipefail
 mkdir -p "${PREFIX}/share"
 echo "Current directory:"
 ls -l
-cp -R vscode-reh-web-linux-x64 "${PREFIX}/share/sagemaker-code-editor"
+cp -R . "${PREFIX}/share/sagemaker-code-editor"
 
 # Remove all .map files to reduce package size.
 find "${PREFIX}/share/sagemaker-code-editor" -name '*.map' -delete

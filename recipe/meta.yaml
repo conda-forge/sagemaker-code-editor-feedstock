@@ -8,6 +8,7 @@ package:
 source:
   url: https://github.com/aws/sagemaker-code-editor/releases/download/v{{ version }}/code-editor{{ version }}.tar.gz
   sha256: 5112de1972a5fd70045210fdc448d1460022def4174b6ed40b22ab863741bf98
+  folder: vscode-reh-web-linux-x64
 
 
 build:
