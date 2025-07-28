@@ -6,8 +6,6 @@ set -exuo pipefail
 # which is licensed under the BSD-3-Clause License.
 
 
-# Extract the prebuilt tarball. This assumes the tarball is already present in the working directory.
-tar -xvf code-editor${PKG_VERSION}.tar.gz
 
 # Copy the extracted folder to the target location under $PREFIX/share/sagemaker-code-editor.
 mkdir -p "${PREFIX}/share"
