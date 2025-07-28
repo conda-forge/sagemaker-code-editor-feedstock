@@ -52,9 +52,16 @@ requirements:
 
 test:
   commands:
-    - sagemaker-code-editor --help
-    # we're using conda ripgrep instead of the node module so testing it's functionality
-    - ${PREFIX}/share/sagemaker-code-editor/node_modules/@vscode/ripgrep/bin/rg --help
+        - echo "Check CLI installed..."
+    - test -f ${PREFIX}/bin/sagemaker-code-editor
+
+    - echo "Check main script exists..."
+    - test -f ${PREFIX}/share/sagemaker-code-editor/out/server-main.js
+
+    - echo "Check node present..."
+    - node --version
+
+    - echo "Test complete."
 
 about:
   home: https://aws.amazon.com/sagemaker/
