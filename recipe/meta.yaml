@@ -1,13 +1,9 @@
-schema_version: 1
-
-
-context:
-  name: sagemaker-code-editor
-  version: "1.8.0"
+{% set name = "sagemaker-code-editor" %}
+{% set version = "1.8.0" %}
 
 package:
-  name: ${{ name|lower }}
-  version: ${{ version }}
+  name: {{ name|lower }}
+  version: {{ version|replace("-", "_") }}
 
 source:
   url: https://github.com/aws/sagemaker-code-editor/releases/download/v{{ version }}/code-editor{{ version }}.tar.gz
