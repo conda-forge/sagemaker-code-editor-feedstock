@@ -1,14 +1,18 @@
-{% set name = "sagemaker-code-editor" %}
-{% set version = "1.7.0" %}
+schema_version: 1
+
+
+context:
+  name: sagemaker-code-editor
+  version: "1.8.0"
 
 package:
-  name: {{ name|lower }}
-  version: {{ version|replace("-", "_") }}
+  name: ${{ name|lower }}
+  version: ${{ version }}
 
 source:
   url: https://github.com/aws/sagemaker-code-editor/releases/download/v{{ version }}/code-editor{{ version }}.tar.gz
-  sha256: 1daf9528888ab19f67813f82666c0a89129c11cada0b6c9f9ab60f4ef3a60120
-  folder: sagemaker-code-editor
+  sha256: 5112de1972a5fd70045210fdc448d1460022def4174b6ed40b22ab863741bf98
+  target_directory: vscode-reh-web-linux-x64
 
 build:
   number: 0
