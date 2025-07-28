@@ -6,6 +6,12 @@ set -exuo pipefail
 # which is licensed under the BSD-3-Clause License.
 
 pushd sagemaker-code-editor
+
+# Next, we need use a wildcard (*) to enter the versioned directory.
+# This matches any directory starting with 'code-editor', such as 'code-editorvx.y.z'.
+# https://github.com/conda-forge/sagemaker-code-editor-feedstock/pull/70/checks In this pr, and the error said GXX=$BUILD_PREFIX/bin/x86_64-conda-linux-gnu-g++ ~/feedstock_root/build_artifacts/sagemaker-code-editor_1750277789375/work/sagemaker-code-editor ~/feedstock_root/build_artifacts/sagemaker-code-editor_1750277789375/work/home/conda/feedstock_root/build_artifacts/sagemaker-code-editor_1750277789375/work/conda_build.sh: line 12: pushd: src: No such file or directory
+# Add the commands to fix the error and help to find the right directory
+
 pushd src
 
 # Fix error 'Check failed: current == end_slot_index.' while running 'yarn list --prod --json'
@@ -14,8 +20,18 @@ pushd src
 
 export DISABLE_V8_COMPILE_CACHE=1
 
+# Limit Node.js memory usage to prevent OOM kills
+# Add this because a previous PR solve the OOM Failures by adding this and we use the same commands
+# See pr: https://github.com/conda-forge/sagemaker-code-editor-feedstock/pull/82/files
+export NODE_OPTIONS="--max-old-space-size=4096"
+export UV_THREADPOOL_SIZE=4
+
 # Install node-gyp globally as a fix for NodeJS 18.18.2 https://github.com/microsoft/vscode/issues/194665
 npm i -g node-gyp
+
+# Limit concurrency to prevent OOM kills
+# Add this because a previous PR solve the OOM Failures by adding this and we use the same commands
+yarn install --network-concurrency 1
 
 # Install all dependencies except @vscode/ripgrep
 VSCODE_RIPGREP_VERSION=$(jq -r '.dependencies."@vscode/ripgrep"' package.json)
