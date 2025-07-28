@@ -52,7 +52,7 @@ requirements:
 
 test:
   commands:
-        - echo "Check CLI installed..."
+    - echo "Check CLI installed..."
     - test -f ${PREFIX}/bin/sagemaker-code-editor
 
     - echo "Check main script exists..."
