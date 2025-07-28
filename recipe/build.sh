@@ -5,9 +5,6 @@ set -exuo pipefail
 # This code includes code from https://github.com/conda-forge/openvscode-server-feedstock 
 # which is licensed under the BSD-3-Clause License.
 
-#!/bin/bash
-
-set -exuo pipefail
 
 # Extract the prebuilt tarball. This assumes the tarball is already present in the working directory.
 tar -xvf code-editor${PKG_VERSION}.tar.gz
