@@ -52,10 +52,13 @@ requirements:
 
 test:
   commands:
+    - set -x  
     - echo "Check CLI installed..."
+    - ls -l ${PREFIX}/bin
     - test -f ${PREFIX}/bin/sagemaker-code-editor
 
     - echo "Check main script exists..."
+    - ls -l ${PREFIX}/share/sagemaker-code-editor/out
     - test -f ${PREFIX}/share/sagemaker-code-editor/out/server-main.js
 
     - echo "Listing installed files..."
