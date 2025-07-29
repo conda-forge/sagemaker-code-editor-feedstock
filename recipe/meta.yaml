@@ -58,7 +58,7 @@ test:
     - echo "Check main script exists..."
     - test -f ${PREFIX}/share/sagemaker-code-editor/out/server-main.js
 
-        - echo "Listing installed files..."
+    - echo "Listing installed files..."
     - find ${PREFIX}/share/sagemaker-code-editor | head -n 50
 
     - echo "Check node present..."
