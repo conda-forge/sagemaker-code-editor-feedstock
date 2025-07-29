@@ -6,14 +6,14 @@ set -exuo pipefail
 # which is licensed under the BSD-3-Clause License.
 
 
-
-# Copy the extracted folder to the target location under $PREFIX/share/sagemaker-code-editor.
-mkdir -p "${PREFIX}/share"
+# Create target directory
+mkdir -p "${PREFIX}/share/sagemaker-code-editor"
 echo "Current directory:"
 ls -l
-cp -R . "${PREFIX}/share/sagemaker-code-editor"
+# Copy all contents into the target directory, avoiding wrapping an extra directory layer
+cp -a ./* "${PREFIX}/share/sagemaker-code-editor"
 
-# Remove all .map files to reduce package size.
+# Clean up unnecessary files to reduce package size
 find "${PREFIX}/share/sagemaker-code-editor" -name '*.map' -delete
 
 # Create the binary entry point script for sagemaker-code-editor.
