@@ -8,6 +8,8 @@ set -exuo pipefail
 
 # Create target directory
 mkdir -p "${PREFIX}/share/sagemaker-code-editor"
+cd "${SRC_DIR}/vscode-reh-web-linux-x64"
+
 echo "Current directory:"
 ls -l
 # Copy all contents into the target directory, avoiding wrapping an extra directory layer
