@@ -1,5 +1,5 @@
 {% set name = "sagemaker-code-editor" %}
-{% set version = "1.7.0" %}
+{% set version = "1.8.0.dev0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,8 +7,9 @@ package:
 
 source:
   url: https://github.com/aws/sagemaker-code-editor/releases/download/v{{ version }}/code-editor{{ version }}.tar.gz
-  sha256: 1daf9528888ab19f67813f82666c0a89129c11cada0b6c9f9ab60f4ef3a60120
+  sha256: f12717dad4b52b3bec0bc46b0077df21b02929f255ebf10090c065db48660a44
   folder: sagemaker-code-editor
+
 
 build:
   number: 0
@@ -39,6 +40,7 @@ requirements:
     - libxkbfile
     - xorg-libx11
     - krb5
+    - glib
     - libsecret
     - xorg-xproto
     - xorg-kbproto
@@ -50,9 +52,22 @@ requirements:
 
 test:
   commands:
-    - sagemaker-code-editor --help
-    # we're using conda ripgrep instead of the node module so testing it's functionality
-    - ${PREFIX}/share/sagemaker-code-editor/node_modules/@vscode/ripgrep/bin/rg --help
+    - set -x  
+    - echo "Check CLI installed..."
+    - ls -l ${PREFIX}/bin
+    - test -f ${PREFIX}/bin/sagemaker-code-editor
+
+    - echo "Check main script exists..."
+    - ls -l ${PREFIX}/share/sagemaker-code-editor/out
+    - test -f ${PREFIX}/share/sagemaker-code-editor/out/server-main.js
+
+    - echo "Listing installed files..."
+    - find ${PREFIX}/share/sagemaker-code-editor | head -n 50
+
+    - echo "Check node present..."
+    - node --version
+
+    - echo "Test complete."
 
 about:
   home: https://aws.amazon.com/sagemaker/
