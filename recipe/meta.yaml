@@ -1,5 +1,5 @@
 {% set name = "sagemaker-code-editor" %}
-{% set version = "1.8.0.dev0" %}
+{% set version = "1.8.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/aws/sagemaker-code-editor/releases/download/v{{ version }}/code-editor{{ version }}.tar.gz
-  sha256: f12717dad4b52b3bec0bc46b0077df21b02929f255ebf10090c065db48660a44
+  sha256: 1a3648779dfeee8c51e71a006ef0f28ceed3fdc1252c7a3f7b15ab6a8aa26484
   folder: sagemaker-code-editor
 
 
@@ -29,7 +29,7 @@ requirements:
     - {{ compiler('cxx') }}
     - {{ stdlib('c') }}
     - krb5
-    
+
     # jq  - used to parse ripgrep version number
     - jq
     # node-gyp is broken with python 3.12 - https://github.com/nodejs/node-gyp/issues/2869, so pulling in distutils via setuptools
@@ -52,7 +52,7 @@ requirements:
 
 test:
   commands:
-    - set -x  
+    - set -x
     - echo "Check CLI installed..."
     - ls -l ${PREFIX}/bin
     - test -f ${PREFIX}/bin/sagemaker-code-editor
