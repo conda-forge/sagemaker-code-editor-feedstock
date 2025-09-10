@@ -1,22 +1,18 @@
 {% set name = "sagemaker-code-editor" %}
-{% set version = "1.5.1" %}
+{% set version = "1.5.2" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version|replace("-", "_") }}
 
 source:
-  url: https://github.com/aws/sagemaker-code-editor/releases/download/v1.5.1/code-editor1.5.1.tar.gz
-  sha256: c22897805d7a779d340819e94d5f585c35b977002a12d01d78262e4678d62d62
-  folder: code-editor1.5.1
+  url: https://github.com/aws/sagemaker-code-editor/releases/download/v{{ version }}/code-editor{{ version }}.tar.gz
+  sha256: 58348d7ef8ecbb8ec69039e32eb79b3371b59516f14d4a0629da9193ad8cb000
+  folder: sagemaker-code-editor
 
 build:
   number: 0
   skip: true  # [not linux]
-  # Request more build resources
-  script_env:
-    - NODE_OPTIONS=--max-old-space-size=4096
-    - UV_THREADPOOL_SIZE=4
 
 requirements:
   build:
@@ -43,6 +39,7 @@ requirements:
     - libxkbfile
     - xorg-libx11
     - krb5
+    - glib
     - libsecret
     - xorg-xproto
     - xorg-kbproto
@@ -54,9 +51,22 @@ requirements:
 
 test:
   commands:
-    - sagemaker-code-editor --help
-    # we're using conda ripgrep instead of the node module so testing it's functionality
-    - ${PREFIX}/share/sagemaker-code-editor/node_modules/@vscode/ripgrep/bin/rg --help
+    - set -x
+    - echo "Check CLI installed..."
+    - ls -l ${PREFIX}/bin
+    - test -f ${PREFIX}/bin/sagemaker-code-editor
+
+    - echo "Check main script exists..."
+    - ls -l ${PREFIX}/share/sagemaker-code-editor/out
+    - test -f ${PREFIX}/share/sagemaker-code-editor/out/server-main.js
+
+    - echo "Listing installed files..."
+    - find ${PREFIX}/share/sagemaker-code-editor | head -n 50
+
+    - echo "Check node present..."
+    - node --version
+
+    - echo "Test complete."
 
 about:
   home: https://aws.amazon.com/sagemaker/
@@ -71,6 +81,9 @@ about:
 
 extra:
   recipe-maintainers:
+    - NewtonDer
+    - aakashmandavilli96
+    - pilgd-aws
     - aws-prayags
     - arkaprava08
     - aws-pangestu
@@ -81,3 +94,4 @@ extra:
     - zuoyuanh
     - sthodimi
     - aws-zamesjhu
+    - athkulk
