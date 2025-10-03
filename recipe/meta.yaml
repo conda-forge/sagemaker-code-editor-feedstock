@@ -1,5 +1,5 @@
 {% set name = "sagemaker-code-editor" %}
-{% set version = "1.6.3" %}
+{% set version = "1.6.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/aws/sagemaker-code-editor/releases/download/v{{ version }}/code-editor{{ version }}.tar.gz
-  sha256: 379ae612c718d17eb3a9d60a5c9ffc6c5e6ac44881014a588124795078b10047
+  sha256: 047b99e4ccc800d4ea0d7d14df6513b5230048e9cd5d79a47f21da48ad3d2818
   folder: sagemaker-code-editor
 
 build:
