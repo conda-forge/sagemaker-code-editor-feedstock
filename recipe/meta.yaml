@@ -40,7 +40,6 @@ requirements:
     - libxkbfile
     - xorg-libx11
     - krb5
-    - glib
     - libsecret
     - xorg-xproto
     - xorg-kbproto
