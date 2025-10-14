@@ -66,6 +66,7 @@ about:
 
 extra:
   recipe-maintainers:
+    - joshuatowner
     - edwardps
     - NewtonDer
     - aws-prayags
