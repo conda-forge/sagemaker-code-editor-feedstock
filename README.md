@@ -9,6 +9,8 @@ Package license: MIT
 
 Summary: Code Editor based on Code-OSS, Visual Studio Code Open Source
 
+Development: https://github.com/aws/sagemaker-code-editor/
+
 Current build status
 ====================
 
@@ -31,6 +33,13 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=21566&branchName=main">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/sagemaker-code-editor-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_aarch64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=21566&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/sagemaker-code-editor-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_" alt="variant">
                 </a>
               </td>
             </tr>
@@ -163,17 +172,9 @@ Feedstock Maintainers
 =====================
 
 * [@NewtonDer](https://github.com/NewtonDer/)
-* [@aakashmandavilli96](https://github.com/aakashmandavilli96/)
 * [@arkaprava08](https://github.com/arkaprava08/)
-* [@athkulk](https://github.com/athkulk/)
-* [@aws-asolidu](https://github.com/aws-asolidu/)
-* [@aws-pangestu](https://github.com/aws-pangestu/)
 * [@aws-prayags](https://github.com/aws-prayags/)
-* [@aws-zamesjhu](https://github.com/aws-zamesjhu/)
-* [@goel-akas](https://github.com/goel-akas/)
-* [@navinsoni](https://github.com/navinsoni/)
-* [@pilgd-aws](https://github.com/pilgd-aws/)
+* [@edwardps](https://github.com/edwardps/)
+* [@joshuatowner](https://github.com/joshuatowner/)
 * [@sgganjo](https://github.com/sgganjo/)
-* [@sthodimi](https://github.com/sthodimi/)
-* [@zuoyuanh](https://github.com/zuoyuanh/)
 

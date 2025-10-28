@@ -2,10 +2,6 @@
 
 set -exuo pipefail
 
-# This code includes code from https://github.com/conda-forge/openvscode-server-feedstock 
-# which is licensed under the BSD-3-Clause License.
-
-
 # Create target directory
 mkdir -p "${PREFIX}/share/sagemaker-code-editor"
 cd "${SRC_DIR}/sagemaker-code-editor"
@@ -43,3 +39,8 @@ node "${PREFIX_DIR}/share/sagemaker-code-editor/out/server-main.js" "$@"
 EOF
 
 chmod +x "${PREFIX}/bin/sagemaker-code-editor"
+
+if [[ "${build_platform}" == "${target_platform}" ]]; then
+  # Directly check whether the sagemaker-code-editor call also works inside of conda-build
+  sagemaker-code-editor --help
+fi
