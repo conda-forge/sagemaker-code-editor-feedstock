@@ -31,14 +31,6 @@ pkgs_dirs:
 solver: libmamba
 
 CONDARC
-
-# Install pixi if not available
-if ! command -v pixi &> /dev/null; then
-    echo "Installing pixi..."
-    curl -fsSL https://pixi.sh/install.sh | bash
-    export PATH="$HOME/.pixi/bin:$PATH"
-fi
-
 pushd "${FEEDSTOCK_ROOT}"
 arch=$(uname -m)
 if [[ "$arch" == "x86_64" ]]; then
