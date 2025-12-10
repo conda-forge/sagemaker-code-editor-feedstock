@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: sagemaker-code-editor
-  version: "1.8.0b7"
+  version: "1.8.0b8"
 
 package:
   name: ${{ name|lower }}
@@ -11,8 +11,8 @@ package:
 source:
   - if: linux and x86_64
     then:
-      url: https://github.com/aws/code-editor/releases/download/1.0.1/code-editor-sagemaker-server-1.0.1.tar.gz
-      sha256: 73222058d751fa7a097f9361015e93671871077f33c0055e3ebb38eb261e31ad
+      url: https://github.com/aws/code-editor/releases/download/1.0.2-rc.1/code-editor-sagemaker-server-1.0.2-rc.1.tar.gz
+      sha256: 678d551acfebe7876f20103ebc20d1c092331c7272fac2993ebfdc52308ca0ae
       target_directory: vscode-reh-web-linux-x64
 
 build:
