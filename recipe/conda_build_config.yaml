@@ -2,8 +2,5 @@
 docker_image:                                  # [x86_64 and linux64]
 - quay.io/condaforge/linux-anvil-alma-x86_64:8 # [x86_64 and linux64]
 
-channel_targets:
-  - conda-forge sagemaker-code-editor_dev
-
 c_stdlib_version:          # [linux]
   - "2.28"                 # [linux]
