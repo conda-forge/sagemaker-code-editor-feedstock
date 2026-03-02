@@ -28,9 +28,9 @@ requirements:
     - ${{ compiler('cxx') }}
     - ${{ stdlib("c") }}
   host:
-    - nodejs 20.*
+    - nodejs 20.19*
   run:
-    - nodejs 20.*
+    - nodejs 20.19*
 
 tests:
   - script:
