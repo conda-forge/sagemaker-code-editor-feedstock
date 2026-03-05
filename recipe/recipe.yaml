@@ -19,7 +19,7 @@ build:
   skip:
     - win
     - osx and x86_64
-  number: 0
+  number: 1
   dynamic_linking:
     binary_relocation: false
 
@@ -28,9 +28,9 @@ requirements:
     - ${{ compiler('cxx') }}
     - ${{ stdlib("c") }}
   host:
-    - nodejs 20.*
+    - nodejs 20.19.*
   run:
-    - nodejs 20.*
+    - nodejs 20.19.*
 
 tests:
   - script:
