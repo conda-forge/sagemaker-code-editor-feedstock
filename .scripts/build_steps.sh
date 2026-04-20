@@ -20,6 +20,7 @@ export PYTHONUNBUFFERED=1
 export RECIPE_ROOT="${RECIPE_ROOT:-/home/conda/recipe_root}"
 export CI_SUPPORT="${FEEDSTOCK_ROOT}/.ci_support"
 export CONFIG_FILE="${CI_SUPPORT}/${CONFIG}.yaml"
+export RATTLER_CACHE_DIR="${FEEDSTOCK_ROOT}/build_artifacts/pkg_cache"
 
 cat >~/.condarc <<CONDARC
 
@@ -31,14 +32,12 @@ pkgs_dirs:
 solver: libmamba
 
 CONDARC
-
 # Install pixi if not available
 if ! command -v pixi &> /dev/null; then
     echo "Installing pixi..."
     curl -fsSL https://pixi.sh/install.sh | bash
     export PATH="$HOME/.pixi/bin:$PATH"
 fi
-
 pushd "${FEEDSTOCK_ROOT}"
 arch=$(uname -m)
 if [[ "$arch" == "x86_64" ]]; then
