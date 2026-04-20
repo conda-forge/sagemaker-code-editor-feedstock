@@ -12,14 +12,14 @@ source:
   - if: linux and x86_64
     then:
       url: https://github.com/aws/sagemaker-code-editor/releases/download/v${{ version }}/code-editor${{ version }}.tar.gz
-      sha256: 36343f16b01211950655cf68df88263702e72463ca7386891379a17b54490488
+      sha256: d6c42fce2bff8f84d16ca2a17a97e5863c54ea1efabce3d90197e50d733c21e5
       target_directory: sagemaker-code-editor
 
 build:
   skip:
     - win
     - osx and x86_64
-  number: 0
+  number: 1
   dynamic_linking:
     binary_relocation: false
 
