@@ -12,14 +12,14 @@ source:
   - if: linux and x86_64
     then:
       url: https://github.com/aws/code-editor/releases/download/1.1.6/code-editor-sagemaker-server-1.1.6.tar.gz
-      sha256: 87406263bd74f15f99d64094fcba5bbc1d869d8cf1bd16d7b651ed361b0068cb
+      sha256: d85dadb63da603e9ce18bb281eb1ea4d23e785956c098a473c447bbd324429d3
       target_directory: vscode-reh-web-linux-x64
 
 build:
   skip:
     - win
     - osx and x86_64
-  number: 1
+  number: 2
   dynamic_linking:
     binary_relocation: false
 
