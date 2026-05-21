@@ -19,7 +19,7 @@ build:
   skip:
     - win
     - osx and x86_64
-  number: 1
+  number: 2
   dynamic_linking:
     binary_relocation: false
 
@@ -34,23 +34,23 @@ requirements:
 
 tests:
   - script:
-    - set -x  
-    - echo "Check CLI installed..."
-    - ls -l ${PREFIX}/bin
-    - test -f ${PREFIX}/bin/sagemaker-code-editor
+      - set -x
+      - echo "Check CLI installed..."
+      - ls -l ${PREFIX}/bin
+      - test -f ${PREFIX}/bin/sagemaker-code-editor
 
-    - echo "Check main script exist s..."
-    - ls -l ${PREFIX}/share/sagemaker-code-editor/out
-    - test -f ${PREFIX}/share/sagemaker-code-editor/out/server-main.js
+      - echo "Check main script exist s..."
+      - ls -l ${PREFIX}/share/sagemaker-code-editor/out
+      - test -f ${PREFIX}/share/sagemaker-code-editor/out/server-main.js
 
-    - echo "Check node present..."
-    - node --version
+      - echo "Check node present..."
+      - node --version
 
-    - echo "Check ripgrep binaries..."
-    - $CONDA_PREFIX/share/sagemaker-code-editor/node_modules/@vscode/ripgrep/bin/rg --version
+      - echo "Check ripgrep binaries..."
+      - $CONDA_PREFIX/share/sagemaker-code-editor/node_modules/@vscode/ripgrep/bin/rg --version
 
-    - echo "Check sagemaker-code-editor binaries..."
-    - sagemaker-code-editor --help
+      - echo "Check sagemaker-code-editor binaries..."
+      - sagemaker-code-editor --help
 
 about:
   license: MIT
