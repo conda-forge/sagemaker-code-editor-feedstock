@@ -34,8 +34,8 @@ fi
 # Move one level up to reach the conda environment prefix.
 PREFIX_DIR=$(dirname "${PREFIX_DIR}")
 
-# Start the server using Node.js, passing all user arguments.
-node "${PREFIX_DIR}/share/sagemaker-code-editor/out/server-main.js" "$@"
+# Start the server using the bundled Node.js, passing all user arguments.
+"${PREFIX_DIR}/share/sagemaker-code-editor/node" "${PREFIX_DIR}/share/sagemaker-code-editor/out/server-main.js" "$@"
 EOF
 
 chmod +x "${PREFIX}/bin/sagemaker-code-editor"
