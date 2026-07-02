@@ -19,7 +19,7 @@ build:
   skip:
     - win
     - osx and x86_64
-  number: 0
+  number: 1
   dynamic_linking:
     binary_relocation: false
 
