@@ -14,6 +14,12 @@ cp -a ./* "${PREFIX}/share/sagemaker-code-editor"
 # Clean up unnecessary files to reduce package size
 find "${PREFIX}/share/sagemaker-code-editor" -name '*.map' -delete
 
+# Remove bundled GitHub Copilot binaries (not used in SageMaker Code Editor)
+# Keep @github/copilot-sdk as it's imported by agentHostMain.js
+# See: https://github.com/aws/code-editor/issues/266
+rm -rf "${PREFIX}/share/sagemaker-code-editor/node_modules/@github/copilot"
+rm -rf "${PREFIX}/share/sagemaker-code-editor/node_modules/@github/copilot-linuxmusl-x64"
+
 # Create the binary entry point script for sagemaker-code-editor.
 mkdir -p "${PREFIX}/bin"
 cat <<'EOF' >"${PREFIX}/bin/sagemaker-code-editor"
@@ -34,8 +40,8 @@ fi
 # Move one level up to reach the conda environment prefix.
 PREFIX_DIR=$(dirname "${PREFIX_DIR}")
 
-# Start the server using Node.js, passing all user arguments.
-node "${PREFIX_DIR}/share/sagemaker-code-editor/out/server-main.js" "$@"
+# Start the server using the bundled Node.js, passing all user arguments.
+"${PREFIX_DIR}/share/sagemaker-code-editor/node" "${PREFIX_DIR}/share/sagemaker-code-editor/out/server-main.js" "$@"
 EOF
 
 chmod +x "${PREFIX}/bin/sagemaker-code-editor"
